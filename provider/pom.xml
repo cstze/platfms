@@ -12,7 +12,7 @@
     <artifactId>provider</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>provider</name>
-    <description>Demo project for Spring Boot</description>
+    <description>生产者</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -44,17 +44,35 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
         <!-- Druid Pool -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>1.1.10</version>
         </dependency>
+
+        <!-- String lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.jk</groupId>
             <artifactId>serviceapi</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.7</version>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>
