@@ -16,6 +16,7 @@ public class Order {
     private Integer avgTransactionPrice;
     private Integer transactionPrice;
 
+
     public String getOrderId() {
         return orderId;
     }
