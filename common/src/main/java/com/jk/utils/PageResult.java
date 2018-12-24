@@ -2,11 +2,7 @@ package com.jk.utils;
 
 import java.util.List;
 
-/**
- * easyui分页返回工具类
- * @author songxj
- *
- */
+
 public class PageResult {
 
 	private Integer total;
