@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jk.mapper.MaMapper">
+
+
+	<select id="couponselectcount" parameterType="map" resultType="int">
+		select count(1) from  t_material t
+		<where>
+			<if test=" mname !=null and   mname !='' ">
+				and t.mname like '%${mname}%'
+			</if>
+		</where>
+	</select>
+	<select id="couponselectList" parameterType="map" resultType="com.jk.model.Material">
+	              	select * from  t_material t
+	              	<where>
+						<if test=" mname !=null and mname !='' ">
+							and t.mname like '%${mname}%'
+						</if>
+					</where>
+	              	limit #{page},#{rows}
+	</select>
+	<select id="malterlist" resultType="com.jk.model.Material">
+		 SELECT * FROM  t_material  t
+		  left  join   t_title d  on   t.category=d.tid
+	</select>
+	 <insert id="insert" parameterType="com.jk.model.Material">
+		  insert  into  t_material (mid,mname,channel) values (#{mid},#{mname},#{channel})
+
+	 </insert>
+
+	<update id="updatinserttype" parameterType="com.jk.model.Material">
+
+		update t_material  set     mname=#{mname},channel=#{channel} where mid=#{mid}
+	</update>
+
+
+</mapper>

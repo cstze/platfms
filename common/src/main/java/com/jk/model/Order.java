@@ -17,6 +17,7 @@ public class Order implements Serializable {
     private Integer avgTransactionPrice;
     private Integer transactionPrice;
 
+
     public String getOrderId() {
         return orderId;
     }

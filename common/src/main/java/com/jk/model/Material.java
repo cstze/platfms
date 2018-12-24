@@ -16,7 +16,7 @@ public class Material implements Serializable {
 
     private  String  mnmaeid;
 
-    private  Integer  mnumber;    //编号
+    private  Integer  mnumber;
 
     private  Integer mcount;
 
