@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jk.mapper.PoMapper">
+    <!--查询    img -->
+	<select id="getimg" resultType="com.jk.model.Img">
+	select  *  from t_img
+   </select>
+	<!-- 查询 count -->
+	<select id="getcount"  resultType="int">
+		select  count(*) from  t_polling t
+		<where>
+			<include refid="poWhereId"></include>
+		</where>
+	</select>
+	<!--询图 查询数据-->
+	<select id="querylist" resultType="com.jk.model.Polling">
+		select  *  from  t_polling t
+		<where>
+			<include refid="poWhereId"></include>
+		</where>
+		LIMIT #{page},#{rows}
+	</select>
+	<sql id="poWhereId">
+		<if test="p.coding != null and p.coding != ''">
+			and t.coding like  '%${p.coding}%'
+		</if>
+		<if test="p.status != null and p.status != ''">
+
+			and t.status = #{p.status}
+		</if>
+		<if test="p.staTime != null and p.staTime != ''">
+			and t.stadate >= STR_TO_DATE(#{p.staTime}}, '%Y-%m-%d')
+		</if>
+		<if test="p.andTime != null and p.andTime != ''">
+		and t.enddata &lt;=STR_TO_DATE(#{P.andTime}, '%Y-%m-%d')
+	    </if>
+	</sql>
+
+	<!--id  查询 询图详情-->
+	<select id="queryPollingId" resultType="com.jk.model.Polling">
+     select  *  from t_polling where id = #{id}
+	</select>
+
+	<!--查询  物料单-->
+	<select id="getCL" resultType="com.jk.model.Materialszl">
+		select  tm.*,tt.tName  as ttname  from  t_materialszl  tm
+		 left join    t_title tt on tm.stileid=tt.tId
+	</select>
+	<!--删除 物料数据-->
+	<delete id="delCL">
+		delete  from t_materialszl where id in ( #{id})
+	</delete>
+   <!--新增 物料-->
+   <insert id="insertMaterialszl">
+
+	   insert  into t_materialszl(id,zhijing,dengji,xilie,caizhi,shengcanbz,stileid)
+	    values (#{id},#{zhijing},#{dengji},#{xilie},#{caizhi},#{shengcanbz},#{stileid})
+   </insert>
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>
