@@ -24,25 +24,6 @@ public class Material implements Serializable {
 
     private   Double unitprice;
 
-    private String  stileid;  /// 类目id‘
-
-    private  String ttname;   ///类目   临时字段
-
-    public String getTtname() {
-        return ttname;
-    }
-
-    public void setTtname(String ttname) {
-        this.ttname = ttname;
-    }
-
-    public String getStileid() {
-        return stileid;
-    }
-
-    public void setStileid(String stileid) {
-        this.stileid = stileid;
-    }
 
     public String getMid() {
         return mid;
