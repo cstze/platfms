@@ -1,10 +1,13 @@
 package com.jk.model;
+
+import java.io.Serializable;
+
 //图单
-public class Figure {
+public class Figure implements Serializable {
 
     private  String  figureid;
 
-    private  Integer starttimetype;
+    private  String starttimetype;
 
     private  String  sarttime;
 
@@ -18,8 +21,7 @@ public class Figure {
 
     private  String  filename;
 
-    private  Integer  status;
-
+    private  String  status;
 
     public String getFigureid() {
         return figureid;
@@ -29,11 +31,11 @@ public class Figure {
         this.figureid = figureid;
     }
 
-    public Integer getStarttimetype() {
+    public String getStarttimetype() {
         return starttimetype;
     }
 
-    public void setStarttimetype(Integer starttimetype) {
+    public void setStarttimetype(String starttimetype) {
         this.starttimetype = starttimetype;
     }
 
@@ -85,11 +87,11 @@ public class Figure {
         this.filename = filename;
     }
 
-    public Integer getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 }
